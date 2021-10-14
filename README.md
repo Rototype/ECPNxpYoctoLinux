@@ -52,3 +52,8 @@ Download and install Ubuntu 18.04
 ## Build next images
 
     bitbake rototype-evaluation-image
+    
+## Copy image to SD card
+
+    sudo bmaptool copy ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/rototype-evaluation-image-imx8mq-ecp.wic.bz2 /dev/<sdcarddevicename> (example /dev/sdc)
+
