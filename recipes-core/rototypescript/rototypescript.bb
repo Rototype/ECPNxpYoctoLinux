@@ -27,6 +27,7 @@ SRC_URI += "file://30-upgrade-init.sh"
 SRC_URI += "file://99-rototype_init.sh"
 SRC_URI += "file://prI210.sh"
 SRC_URI += "file://usb_gadget_init.sh"
+SRC_URI += "file://usb_rndis_init.sh"
 SRC_URI += "file://startMenu.sh"
 SRC_URI += "file://startEcpApp.sh"
 SRC_URI += "file://eth0.param"
@@ -66,6 +67,7 @@ do_install() {
 	     install -m 0777 ${S}/prFpga.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prI210.sh ${D}/home/root/script
 	     install -m 0777 ${S}/usb_gadget_init.sh ${D}/home/root/script
+	     install -m 0777 ${S}/usb_rndis_init.sh ${D}/home/root/script
 	     install -m 0777 ${S}/eth0.param ${D}/home/root/config
 	     install -m 0777 ${S}/I210_Invm_Copper_NoAPM_v0.6.HEX ${D}/home/root/firmware
 	     install -m 0777 ${S}/resetFpga.sh ${D}/home/root/script
