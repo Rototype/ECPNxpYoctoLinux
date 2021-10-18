@@ -1,7 +1,8 @@
 #!/bin/bash
-
-/home/root/app/comunicator &
-/home/root/app/ecp &
+sleep 10
+echo "Launching Comunicator"
+cd /home/root/
+/home/root/app/Comunicator
 
 
 
