@@ -31,7 +31,8 @@ SRC_URI += "file://startEcpApp.sh"
 SRC_URI += "file://eth0.param"
 SRC_URI += "file://rc.local"
 SRC_URI += "file://I210_Invm_Copper_NoAPM_v0.6.HEX"
-
+SRC_URI += "file://resetFpga.sh"
+SRC_URI += "file://resetSoc.sh"
 
 
 S = "${WORKDIR}"
@@ -66,6 +67,8 @@ do_install() {
 	     install -m 0777 ${S}/usb_gadget_init.sh ${D}/home/root/script
 	     install -m 0777 ${S}/eth0.param ${D}/home/root/config
 	     install -m 0777 ${S}/I210_Invm_Copper_NoAPM_v0.6.HEX ${D}/home/root/firmware
+	     install -m 0777 ${S}/resetFpga.sh ${D}/home/root/script
+	     install -m 0777 ${S}/resetSoc.sh ${D}/home/root/script
 }
 
 FILES_${PN} += "/home/root/script"
