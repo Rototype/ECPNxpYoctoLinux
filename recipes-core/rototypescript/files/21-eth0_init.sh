@@ -8,7 +8,7 @@ INTERFACE0=eth0
 IPADDR0=169.254.10.10
 SUBNET0=255.255.255.0
 GWADDR0=169.254.10.1
-DHCP_MODE0="disable"
+DHCP_MODE0="enable"
 
 
 
@@ -22,8 +22,8 @@ echo $IPADDR0 $GWADDR0 $DHCP_MODE
 
 if [ "$DHCP_MODE0" = "enable" ];then
 	ip link set $INTERFACE0 down
-	udhcpc -i eth0
-	ip link set $INTERFACE0 up
+        ip link set $INTERFACE0 up
+	udhcpc -i eth0 -b
 else
 	ip addr flush dev $INTERFACE0
 	ip link set $INTERFACE0 down
