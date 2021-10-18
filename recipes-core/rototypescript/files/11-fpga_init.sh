@@ -39,7 +39,7 @@ do
 done
 
 counter=0
-while [ $(cat $MC_SOC_DONE_PIN/value) -eq 0 ]
+while [ $(cat $MC_SOC_DONE_GPIO/value) -eq 0 ]
 do
   sleep 0.1
   let counter++
