@@ -1,0 +1,22 @@
+From 4c9335e914b7f3b26bd6d64c45820fc97626e160 Mon Sep 17 00:00:00 2001
+From: ked <info@kedsrl.it>
+Date: Fri, 15 Oct 2021 04:30:47 -0700
+Subject: [PATCH] remove DRI if there is no X11
+
+---
+ content/gpu/BUILD.gn | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/content/gpu/BUILD.gn b/content/gpu/BUILD.gn
+index 049ff7bcee..fb6cdc6d3a 100644
+--- a/content/gpu/BUILD.gn
++++ b/content/gpu/BUILD.gn
+@@ -135,7 +135,7 @@ target(link_target_type, "gpu_sources") {
+   }
+ 
+   # Use DRI on desktop Linux builds.
+-  if (current_cpu != "s390x" && current_cpu != "ppc64" &&
++  if (current_cpu != "s390x" && current_cpu != "ppc64" && use_x11 &&
+       (is_linux || is_chromeos_lacros) &&
+       (!is_chromecast || is_cast_desktop_build)) {
+     configs += [ "//build/config/linux/dri" ]
