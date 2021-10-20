@@ -16,12 +16,12 @@ if [ -f "$file_fpga" ]
 then
 	rmmod spi-fsl-qspi
 	echo 0     > $MC_BOOT_FPGA_GPIO/value
-	echo 1     > $MC_QSPI_FPGA_EN_GPIO/value
-	echo 0     > $MC_QSPI_SOC_EN_GPIO/value
+	echo 0     > $MC_QSPI_FPGA_EN_GPIO/value
+	echo 1     > $MC_QSPI_SOC_EN_GPIO/value
 	modprobe spi-fsl-qspi
 	echo "update boot system.."
 	flash_erase /dev/mtd0 0 0
-	flashcp -v $file_soc /dev/mtd0
+	flashcp -v $file_fpga /dev/mtd0
 	rmmod spi-fsl-qspi
 	echo 1     > $MC_QSPI_FPGA_EN_GPIO/value
 	echo 1     > $MC_QSPI_SOC_EN_GPIO/value
