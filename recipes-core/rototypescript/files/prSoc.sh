@@ -19,7 +19,7 @@ export MC_FPGA_DONE_GPIO="/sys/class/gpio/gpio"$MC_FPGA_DONE_PIN
 if [ -f "$file_soc" ] 
 then
 	rmmod spi-fsl-qspi
-	echo 0     > $MC_BOOT_SOC_GPIO/value
+	echo 1     > $MC_BOOT_SOC_GPIO/value
 	echo 1     > $MC_QSPI_FPGA_EN_GPIO/value
 	echo 0     > $MC_QSPI_SOC_EN_GPIO/value
 	modprobe spi-fsl-qspi
