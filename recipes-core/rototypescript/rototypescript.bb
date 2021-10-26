@@ -27,7 +27,6 @@ SRC_URI += "file://30-upgrade-init.sh"
 SRC_URI += "file://99-rototype_init.sh"
 SRC_URI += "file://prI210.sh"
 SRC_URI += "file://usb_gadget_init.sh"
-SRC_URI += "file://startMenu.sh"
 SRC_URI += "file://startEcpApp.sh"
 SRC_URI += "file://eth0.param"
 SRC_URI += "file://rc.local"
@@ -55,7 +54,6 @@ do_install() {
 	     install -m 0777 ${S}/23-usb_rndis_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/30-upgrade-init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/rototype_init.sh ${D}/home/root
-	     install -m 0777 ${S}/startMenu.sh ${D}/home/root
 	     install -m 0777 ${S}/startEcpApp.sh ${D}/home/root
 	     install -m 0777 ${S}/mksdcard.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prEcp.sh ${D}/home/root/script
