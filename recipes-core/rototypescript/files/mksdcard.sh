@@ -9,7 +9,7 @@ ROOTFS_START=64
 while [ ! -e $1 ]
 do
 sleep 1
-echo “wait for $1 appear”
+echo "wait for $1 appear"
 done
 
 # call sfdisk to create partition table
