@@ -23,7 +23,7 @@ SRC_URI += "file://20-network_init.sh"
 SRC_URI += "file://21-eth0_init.sh"
 SRC_URI += "file://22-eth1_init.sh"
 SRC_URI += "file://23-usb_rndis_init.sh"
-SRC_URI += "file://30-upgrade-init.sh"
+SRC_URI += "file://30-upgrade_init.sh"
 SRC_URI += "file://99-rototype_init.sh"
 SRC_URI += "file://prI210.sh"
 SRC_URI += "file://usb_gadget_init.sh"
@@ -33,6 +33,7 @@ SRC_URI += "file://rc.local"
 SRC_URI += "file://I210_Invm_Copper_NoAPM_v0.6.HEX"
 SRC_URI += "file://resetFpga.sh"
 SRC_URI += "file://resetSoc.sh"
+SRC_URI += "file://prComunicator.sh"
 
 
 S = "${WORKDIR}"
@@ -52,7 +53,7 @@ do_install() {
 	     install -m 0777 ${S}/21-eth0_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/22-eth1_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/23-usb_rndis_init.sh ${D}/home/root/startup
-	     install -m 0777 ${S}/30-upgrade-init.sh ${D}/home/root/startup
+	     install -m 0777 ${S}/30-upgrade_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/99-rototype_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/rototype_init.sh ${D}/home/root
 	     install -m 0777 ${S}/startEcpApp.sh ${D}/home/root
@@ -69,6 +70,7 @@ do_install() {
 	     install -m 0777 ${S}/I210_Invm_Copper_NoAPM_v0.6.HEX ${D}/home/root/firmware
 	     install -m 0777 ${S}/resetFpga.sh ${D}/home/root/script
 	     install -m 0777 ${S}/resetSoc.sh ${D}/home/root/script
+	     install -m 0777 ${S}/prComunicator.sh ${D}/home/root/script
 }
 
 FILES_${PN} += "/home/root/script"
