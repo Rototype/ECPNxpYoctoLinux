@@ -54,7 +54,7 @@ do_install() {
 	     install -m 0777 ${S}/23-usb_rndis_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/30-upgrade_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/99-rototype_init.sh ${D}/home/root/startup
-	     install -m 0777 ${S}/startEcpApp.sh ${D}/home/root
+	     install -m 0777 ${S}/startEcpApp.sh ${D}/home/root/script
 	     install -m 0777 ${S}/mksdcard.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prEcp.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prEMMC.sh ${D}/home/root/script
