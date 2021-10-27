@@ -32,7 +32,7 @@ while [ $(cat $MC_FPGA_DONE_GPIO/value) -eq 0 ]
 do
   sleep 0.1
   let counter++
-  if [ $counter -eq 20 ]; then
+  if [ $counter -eq 30 ]; then
     echo "    -> Spartan7 FPGA Timed Out"
     break
   fi
