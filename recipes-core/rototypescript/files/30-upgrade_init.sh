@@ -2,14 +2,31 @@
 
 echo "    ECP Platform Update>"
 
+usb_device="/dev/sda"
 file_prboard="/home/root/update/_program"
-file_prusb="/run/media/sda1/_program"
+file_prusb="/run/media/sda/_program"
 file_update="/home/root/update/_update"
-file_update_usb="/run/media/sda1/_update"
+file_update_usb="/run/media/sda/_update"
+
+sleep 1
+
+if [ -b "${usb_device}1" ]
+then
+    usb_device="${usb_device}1"
+    mkdir -p /run/media/sda
+    mount $usb_device /run/media/sda
+elif [ -b "${usb_device}" ]
+then
+    mkdir -p /run/media/sda
+    mount $usb_device /run/media/sda
+fi
+
+sleep 1
 
 if [ -f "$file_prusb" ]
 then
-        mount /dev/sda1 /home/root/update
+        umount /run/media/sda
+        mount $usb_device /home/root/update
         systemctl stop weston
         psplash -n &
         psplash-write "ECP SYSTEM PROGRAMMING......"
@@ -46,6 +63,8 @@ then
         systemctl start weston
 fi
 
+sleep 1
+
 if [ -f "$file_update" ]
 then
         echo "    ECP APP UPDATE FOUND............................>"
@@ -57,10 +76,13 @@ then
         rm $file_update
 fi
 
+sleep 1
+
 if [ -f "$file_update_usb" ]
 then
         echo "    ECP USB UPDATE FOUND............................>"
-        mount /dev/sda1 /home/root/update
+        umount /run/media/sda
+        mount $usb_device /home/root/update
         /home/root/script/prKernel.sh
         /home/root/script/prDevicetree.sh
         /home/root/script/prComunicator.sh
@@ -68,4 +90,9 @@ then
         /home/root/script/prSoc.sh
 fi
 
+sleep 1
 
+umount /run/media/sda
+umount /home/root/update
+
+sleep 1
