@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Launching Comunicator"
-cd /home/root/
+cd /home/root/app
 
 # nohup without logs
 nohup /home/root/app/Comunicator > /dev/null 2>&1 &

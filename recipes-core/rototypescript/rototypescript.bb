@@ -2,7 +2,7 @@
 # This file is the script recipe.
 #
 
-SUMMARY = "Programmin script application"
+SUMMARY = "Programming script application"
 SECTION = "ROTOTYPE/apps"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -23,10 +23,8 @@ SRC_URI += "file://21-eth0_init.sh"
 SRC_URI += "file://22-eth1_init.sh"
 SRC_URI += "file://23-usb_rndis_init.sh"
 SRC_URI += "file://30-upgrade_init.sh"
-SRC_URI += "file://99-rototype_init.sh"
 SRC_URI += "file://prI210.sh"
 SRC_URI += "file://usb_gadget_init.sh"
-SRC_URI += "file://startEcpApp.sh"
 SRC_URI += "file://eth0.param"
 SRC_URI += "file://rc.local"
 SRC_URI += "file://I210_Invm_Copper_NoAPM_v0.6.HEX"
@@ -39,7 +37,6 @@ S = "${WORKDIR}"
 
 do_install() {
 	     install -d ${D}/home/root/script
-	     install -d ${D}/home/root/app
 	     install -d ${D}/home/root/config
 	     install -d ${D}/home/root/firmware
 	     install -d ${D}/home/root/update
@@ -53,8 +50,6 @@ do_install() {
 	     install -m 0777 ${S}/22-eth1_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/23-usb_rndis_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/30-upgrade_init.sh ${D}/home/root/startup
-	     install -m 0777 ${S}/99-rototype_init.sh ${D}/home/root/startup
-	     install -m 0777 ${S}/startEcpApp.sh ${D}/home/root/script
 	     install -m 0777 ${S}/mksdcard.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prEcp.sh ${D}/home/root/script
 	     install -m 0777 ${S}/prEMMC.sh ${D}/home/root/script
@@ -73,7 +68,6 @@ do_install() {
 
 FILES_${PN} += "/home/root/script"
 FILES_${PN} += "/home/root/firmware"
-FILES_${PN} += "/home/root/app"
 FILES_${PN} += "/home/root/config"
 FILES_${PN} += "/home/root/update"
 FILES_${PN} += "/home/root/"
