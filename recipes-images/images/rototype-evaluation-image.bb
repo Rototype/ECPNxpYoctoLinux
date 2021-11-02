@@ -113,3 +113,11 @@ IMAGE_INSTALL += " \
 	${CLINFO} \
 "
 
+IMAGE_INSTALL += " webkiosk-launcher"
+append_weston() {
+    if ! grep -q "icon=/usr/share/webkiosk_launcher/icon_chromium_launcher.png" ${IMAGE_ROOTFS}${sysconfdir}/xdg/weston/weston.ini
+    then
+      printf "\n[launcher]\nicon=/usr/share/webkiosk_launcher/icon_chromium_launcher.png\npath=/usr/share/webkiosk_launcher/webkiosk.sh\n\n[launcher]\nicon=/usr/share/weston/terminal.png\npath=/usr/bin/weston-terminal\n\n"  >> ${IMAGE_ROOTFS}${sysconfdir}/xdg/weston/weston.ini
+    fi
+}
+ROOTFS_POSTPROCESS_COMMAND_append = "append_weston; "
