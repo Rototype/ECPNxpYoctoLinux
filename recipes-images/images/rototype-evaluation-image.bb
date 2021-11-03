@@ -121,6 +121,7 @@ append_weston() {
     fi
 }
 ROOTFS_POSTPROCESS_COMMAND_append = "append_weston; "
-IMAGE_INSTALL += " comunicator"
+
+IMAGE_INSTALL += " comunicator startup"
 
 

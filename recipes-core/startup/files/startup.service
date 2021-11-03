@@ -1,0 +1,16 @@
+[Unit]
+Description=Startup service
+DefaultDependencies=false
+After=dbus.service
+Before=network.target multi-user.target
+Wants=network.target
+
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/startup.sh
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target

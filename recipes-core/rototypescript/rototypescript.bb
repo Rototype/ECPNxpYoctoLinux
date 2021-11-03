@@ -26,7 +26,6 @@ SRC_URI += "file://30-upgrade_init.sh"
 SRC_URI += "file://prI210.sh"
 SRC_URI += "file://usb_gadget_init.sh"
 SRC_URI += "file://eth0.param"
-SRC_URI += "file://rc.local"
 SRC_URI += "file://I210_Invm_Copper_NoAPM_v0.6.HEX"
 SRC_URI += "file://resetFpga.sh"
 SRC_URI += "file://resetSoc.sh"
@@ -41,8 +40,6 @@ do_install() {
 	     install -d ${D}/home/root/firmware
 	     install -d ${D}/home/root/update
 	     install -d ${D}/home/root/startup
-	     install -d ${D}${sysconfdir}	
-	     install -m 0777 ${S}/rc.local ${D}${sysconfdir}
 	     install -m 0777 ${S}/10-gpio_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/11-fpga_init.sh ${D}/home/root/startup
 	     install -m 0777 ${S}/20-network_init.sh ${D}/home/root/startup

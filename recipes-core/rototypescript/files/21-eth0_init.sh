@@ -22,14 +22,18 @@ echo $IPADDR0 $GWADDR0 $DHCP_MODE
 
 if [ "$DHCP_MODE0" = "enable" ];then
 	ip link set $INTERFACE0 down
-        ip link set $INTERFACE0 up
-	udhcpc -i eth0 -b
+	ip link set $INTERFACE0 up
+	sleep 1
+	udhcpc -b -i eth0
+	ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 else
 	ip addr flush dev $INTERFACE0
 	ip link set $INTERFACE0 down
 	ip link set $INTERFACE0 up
 	ip addr add $IPADDR0/24 dev $INTERFACE0
-	ip route add default via $GWADDR0	
+	ip route add default via $GWADDR0
+	rm /etc/resolv.conf
+	touch /etc/resolv.conf
+	echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+	echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 fi;
-
-
