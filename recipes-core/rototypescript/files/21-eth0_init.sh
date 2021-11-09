@@ -24,8 +24,11 @@ if [ "$DHCP_MODE0" = "enable" ];then
 	ip link set $INTERFACE0 down
 	ip link set $INTERFACE0 up
 	sleep 1
+	rm /etc/resolv.conf
+	touch /etc/resolv.conf
+	echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+	echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 	udhcpc -b -i eth0
-	ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 else
 	ip addr flush dev $INTERFACE0
 	ip link set $INTERFACE0 down
