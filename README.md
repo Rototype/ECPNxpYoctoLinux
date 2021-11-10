@@ -57,3 +57,10 @@ Download and install Ubuntu 18.04
 
     sudo bmaptool copy ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/rototype-evaluation-image-imx8mq-ecp.wic.bz2 /dev/<sdcarddevicename> (example /dev/sdc)
 
+## Copy installation/upgrading material to destination folder
+
+    mkdir -p ~/imx-yocto-bsp/update (use your preferred folder)
+    cp ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/rototype-evaluation-image-imx8mq-ecp.tar.bz2 ~/imx-yocto-bsp/update/rootfs.tar.bz2
+    cp ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/Image ~/imx-yocto-bsp/update/Image.bin
+    cp ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/imx8mq-ecp.dtb ~/imx-yocto-bsp/update/imx8mq-ecp.dtb
+    cp ~/imx-yocto-bsp/build-rototype-ecp/tmp/deploy/images/imx8mq-ecp/imx-boot ~/imx-yocto-bsp/update/imx-boot.bin
