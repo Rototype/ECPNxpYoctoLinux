@@ -37,7 +37,7 @@ then
         psplash-write "PROGRESS 60"
         /home/root/script/prSoc.sh
         psplash-write "PROGRESS 100"
-        killall psplash
+        #killall psplash
         systemctl start weston
 elif [ -f "$file_prboard" ]
 then
@@ -55,7 +55,7 @@ then
         psplash-write "PROGRESS 60"
         /home/root/script/prSoc.sh
         psplash-write "PROGRESS 100"
-        killall psplash
+        #killall psplash
         systemctl start weston
 fi
 

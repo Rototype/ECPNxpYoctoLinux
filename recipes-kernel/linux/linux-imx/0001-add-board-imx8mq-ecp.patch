@@ -27,7 +27,7 @@ new file mode 100644
 index 000000000000..404b612413c5
 --- /dev/null
 +++ b/arch/arm64/boot/dts/freescale/imx8mq-ecp.dts
-@@ -0,0 +1,873 @@
+@@ -0,0 +1,876 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright 2017 NXP
@@ -235,6 +235,9 @@ index 000000000000..404b612413c5
 +    pinctrl-0 = <&pinctrl_fec1>;
 +    phy-mode = "rgmii-id";
 +    phy-handle = <&ethphy0>;
++    phy-reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
++    phy-reset-duration = <20>;
++    phy-reset-post-delay = <50>;
 +    fsl,magic-packet;
 +    status = "okay";
 +

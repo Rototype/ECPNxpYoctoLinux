@@ -10,7 +10,7 @@ inherit core-image
 
 ### WARNING: This image is NOT suitable for production use and is intended
 ###          to provide a way for users to reproduce the image used during
-###          the validation process of Engicam SOM
+###          the validation process of Rototype ECP Platform
 
 ## Select Image Features
 IMAGE_FEATURES += " \
@@ -69,6 +69,7 @@ PKG_DEBUG = "\
 	dosfstools \
 	e2fsprogs \
 	ethtool \
+	net-tools \ 
 	evtest \
 	i2c-tools \
 	iproute2 \
@@ -87,6 +88,7 @@ PKG_DEBUG = "\
 	linux-firmware \
 	nvme-cli \
 	ldd \
+	tcpdump \
 "
 
 PKG_ECP = "\
@@ -98,6 +100,11 @@ PKG_ECP = "\
 	cups  cups-doc  cups-filters  cups-libimage \
 	ghostscript \
         hplip  \
+	ncurses \
+	dialog \
+	pv \
+	read-edid \
+	phytool \
 "
 IMAGE_INSTALL += " \
 	packagegroup-core-full-cmdline \
