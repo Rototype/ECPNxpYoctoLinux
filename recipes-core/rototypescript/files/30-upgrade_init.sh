@@ -23,8 +23,8 @@ if [ -f "$file_prusb" ]
 then
         umount /run/media/sda
         mount $usb_device /home/root/update
-        systemctl stop weston
-        psplash -n &
+        #systemctl stop weston
+        #psplash -n &
         psplash-write "ECP SYSTEM PROGRAMMING......"
         sleep 1.5
         psplash-write "MSG USB_PROGRAMMING_FOUND.."
@@ -38,11 +38,11 @@ then
         /home/root/script/prSoc.sh
         psplash-write "PROGRESS 100"
         #killall psplash
-        systemctl start weston
+        #systemctl start weston
 elif [ -f "$file_prboard" ]
 then
-        systemctl stop weston
-        psplash -n &
+        #systemctl stop weston
+        #psplash -n &
         psplash-write "ECP SYSTEM PROGRAMMING......"
         sleep 1.5
         psplash-write "MSG SD_PROGRAMMING_FOUND.."
@@ -56,7 +56,7 @@ then
         /home/root/script/prSoc.sh
         psplash-write "PROGRESS 100"
         #killall psplash
-        systemctl start weston
+        #systemctl start weston
 fi
 
 if [ -f "$file_update" ]
